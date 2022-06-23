@@ -1,0 +1,22 @@
+{
+  "name": "@ligalaiz/mailer",
+  "version": "0.0.1",
+  "description": "Send mail from form",
+  "main": "index.js",
+  "type": "module",
+  "private": "true",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Ligalaiz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemailer": "^6.7.5",
+    "nodemon": "^2.0.16"
+  }
+}
