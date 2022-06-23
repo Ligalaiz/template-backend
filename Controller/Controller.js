@@ -4,11 +4,11 @@ import { service } from '../Service/index.js';
 dotenv.config();
 
 class Controller {
-  send(req, res) {
+ async send(req, res) {
     try {
       const { mailOptions, transporter } = service.send(req.body);
 
-      transporter.sendMail(mailOptions, (error, info) => {
+     await transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           console.log(error);
         } else {
@@ -16,7 +16,7 @@ class Controller {
         }
       });
 
-      res.json(form);
+      res.json(mailOptions);
     } catch (e) {
       res.status(500).json(e);
     }
