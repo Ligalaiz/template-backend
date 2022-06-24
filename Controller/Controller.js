@@ -8,7 +8,7 @@ class Controller {
     try {
       const { mailOptions, transporter } = service.send(req.body);
 
-     await transporter.sendMail(mailOptions, (error, info) => {
+      await transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           console.log(error);
         } else {
@@ -18,7 +18,7 @@ class Controller {
 
       res.json(mailOptions);
     } catch (e) {
-      res.status(500).json(e);
+      res.status(500).json({ message: "Error in invocation of API: /feedback" });
     }
   }
 }

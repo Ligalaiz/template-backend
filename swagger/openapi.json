@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "0.0.1",
+    "title": "Template API"
+  },
+  "paths": {
+    "/feedback": {
+      "post": {
+        "tags": [
+          "Post request"
+        ],
+        "summary": "Send form data ot email",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "john@gmail.com"
+                  },
+                  "desc": {
+                    "type": "string",
+                    "example": "Short description"
+                  }
+                },
+                "required": [
+                  "name",
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "example": "example@gmail.com"
+                    },
+                    "to": {
+                      "type": "string",
+                      "example": "example@gmail.com"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "example": "Email header"
+                    },
+                    "text": {
+                      "type": "string",
+                      "example": "name: John, email: john@gmail.com, desc: Short description"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error in invocation of API: /feedback"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
